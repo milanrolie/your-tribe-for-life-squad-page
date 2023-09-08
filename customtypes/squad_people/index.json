@@ -1,6 +1,6 @@
 {
-  "id": "squad_page",
-  "label": "squad",
+  "id": "squad_people",
+  "label": "Squad people",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -12,12 +12,21 @@
         },
         "type": "UID"
       },
+      "titel": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Titel",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "squad_people": {
+            "all_people": {
               "type": "SharedSlice"
             }
           }

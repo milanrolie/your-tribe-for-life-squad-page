@@ -1,0 +1,29 @@
+{
+  "id": "all_people",
+  "type": "SharedSlice",
+  "name": "AllPeople",
+  "description": "AllPeople",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "Squad_Member": {
+          "type": "Link",
+          "config": {
+            "label": "Squad Member",
+            "select": "document",
+            "customtypes": [
+              "squad_member"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
