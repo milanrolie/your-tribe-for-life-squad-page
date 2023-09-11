@@ -1,16 +1,20 @@
 <script>
   import { SliceZone } from "@prismicio/svelte";
   import { components } from "$lib/slices";
+  
+  import Nav from "$lib/components/nav.svelte"
 
   export let data;
-  console.log(data);
 </script>
+
+
+<Nav />
 
 <SliceZone slices={data.slices} {components} />
 
-<pre>
+<!-- <pre>
     {JSON.stringify(data, null, 2)}
-</pre>
+</pre> -->
 
 
 
