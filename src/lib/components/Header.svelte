@@ -38,6 +38,11 @@
     & h1 {
       color: var(--flashWhite);
       font-size: 8vw;
+      font-weight: 400;
+    }
+
+    & h3 {
+      font-weight: 300;
     }
 
     & .info_component {
@@ -47,6 +52,7 @@
       height: 25vw;
       margin: var(--padding) 0 var(--padding) 0;
       padding: var(--padding);
+      font-weight: 300;
     }
 
     & .line_container {
