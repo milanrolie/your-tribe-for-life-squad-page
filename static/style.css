@@ -234,7 +234,6 @@
 
 body {
     background-color: var(--dark);
-    background-color: #bed0fa;
     color: var(--flashWhite);
     font-family: 'TT Firs Neue';
     padding: 2em;

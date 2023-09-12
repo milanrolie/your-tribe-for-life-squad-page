@@ -4,18 +4,43 @@
 export let list;
 
 onMount(() => {
-  var cursors = document.querySelectorAll(".follow-img");
+  // Select all elements with class "follow-img"
+  const cursors = document.querySelectorAll('.follow-img');
 
-  document.addEventListener("mousemove", (e) => {
-    var x = e.clientX;
-    var y = e.clientY;
+  // Set a factor to control the smoothness (lower values will make it smoother)
+  const smoothFactor = 0.1;
 
-    cursors.forEach((cursor) => {
-      cursor.style.left = `${x}px`;
-      cursor.style.top = `${y}px`;
+  // Create an array to store target positions for each element
+  const targetPositions = Array.from(cursors).map(() => ({ x: 0, y: 0 }));
+
+  // Add a mousemove event listener to update the target positions
+  document.addEventListener('mousemove', (e) => {
+    cursors.forEach((cursor, index) => {
+      targetPositions[index].x = e.clientX;
+      targetPositions[index].y = e.clientY;
     });
   });
+
+  // Function to update the positions of all elements smoothly
+  const updatePositions = () => {
+    cursors.forEach((cursor, index) => {
+      // Calculate the difference between the current and target positions
+      const dx = targetPositions[index].x - cursor.offsetLeft;
+      const dy = targetPositions[index].y - cursor.offsetTop;
+
+      // Update the element position by interpolating towards the target position
+      cursor.style.left = `${cursor.offsetLeft + dx * smoothFactor}px`;
+      cursor.style.top = `${cursor.offsetTop + dy * smoothFactor}px`;
+    });
+
+    // Request the next animation frame
+    requestAnimationFrame(updatePositions);
+  };
+
+  // Start the animation loop
+  updatePositions();
 });
+
 </script>
 
 <h3>op deze pagina kun je alle squadmembers vinden.</h3>
@@ -60,7 +85,6 @@ onMount(() => {
     list-style-type: none;
     padding: 1em 0;
     transition: 0.3s;
-    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
   }
 
   li:hover .member-name {
@@ -72,24 +96,27 @@ onMount(() => {
   }
 
   li:hover .background-top {
-    top: 100%;
+    /* top: 100%; */
     animation: toTop 1s forwards;
     animation-fill-mode: forwards; /* Ensure final state persists */
   }
 
   li:hover .background-bottom {
-    top: -100%;
+    /* top: -100%; */
     animation: toBottom 1s forwards;
     animation-fill-mode: forwards; /* Ensure final state persists */
   }
 
-  @keyframes toBottom {
+  li:hover {
+    background-color: var(--flashWhite);
+  }
+
+  /* @keyframes toBottom {
     0% {
-      transform: translateY(0%);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);;
     }
     100% {
-      transform: translateY(100%);
-    }
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);    }
   }
 
   @keyframes toTop {
@@ -99,7 +126,7 @@ onMount(() => {
     100% {
       transform: translateY(-100%);
     }
-  }
+  } */
 
   a {
     display: flex;
@@ -140,13 +167,14 @@ onMount(() => {
   img {
     position: fixed;
     opacity: 0;
-    width: 100%;
-    height: auto;
+    width: 20vw;
+    height: 25vw;
     max-width: 400px;
     box-sizing: border-box;
-    z-index: 5;
+    z-index: 10;
     object-fit: cover;
     pointer-events: none;
-
+    border-radius: .5em;
+    transform: translateX(1em) translateY(1em);
   }
 </style>
