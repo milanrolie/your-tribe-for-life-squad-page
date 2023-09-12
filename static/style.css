@@ -2,10 +2,10 @@
     font-family: 'TT Firs Neue';
     src: url('TTFirsNeue-Light.eot');
     src: local('TT Firs Neue Light'), local('TTFirsNeue-Light'),
-        url('TTFirsNeue-Light.eot?#iefix') format('embedded-opentype'),
-        url('TTFirsNeue-Light.woff2') format('woff2'),
-        url('TTFirsNeue-Light.woff') format('woff'),
-        url('TTFirsNeue-Light.ttf') format('truetype');
+        url('static/font/TTFirsNeue-Light.eot?#iefix') format('embedded-opentype'),
+        url('static/font/TTFirsNeue-Light.woff2') format('woff2'),
+        url('static/font/TTFirsNeue-Light.woff') format('woff'),
+        url('static/font/TTFirsNeue-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }
@@ -14,10 +14,10 @@
     font-family: 'TT Firs Neue';
     src: url('TTFirsNeue-Regular.eot');
     src: local('TT Firs Neue Regular'), local('TTFirsNeue-Regular'),
-        url('TTFirsNeue-Regular.eot?#iefix') format('embedded-opentype'),
-        url('TTFirsNeue-Regular.woff2') format('woff2'),
-        url('TTFirsNeue-Regular.woff') format('woff'),
-        url('TTFirsNeue-Regular.ttf') format('truetype');
+        url('static/font/TTFirsNeue-Regular.eot?#iefix') format('embedded-opentype'),
+        url('static/font/TTFirsNeue-Regular.woff2') format('woff2'),
+        url('static/font/TTFirsNeue-Regular.woff') format('woff'),
+        url('static/font/TTFirsNeue-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -26,22 +26,23 @@
     font-family: 'TT Firs Neue';
     src: url('TTFirsNeue-BoldItalic.eot');
     src: local('TT Firs Neue Bold Italic'), local('TTFirsNeue-BoldItalic'),
-        url('TTFirsNeue-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('TTFirsNeue-BoldItalic.woff2') format('woff2'),
-        url('TTFirsNeue-BoldItalic.woff') format('woff'),
-        url('TTFirsNeue-BoldItalic.ttf') format('truetype');
+        url('static/font/TTFirsNeue-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('static/font/TTFirsNeue-BoldItalic.woff2') format('woff2'),
+        url('static/font/TTFirsNeue-BoldItalic.woff') format('woff'),
+        url('static/font/TTFirsNeue-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
 }
+
 
 @font-face {
     font-family: 'TT Firs Neue';
     src: url('TTFirsNeue-DemiBoldItalic.eot');
     src: local('TT Firs Neue DemiBold Italic'), local('TTFirsNeue-DemiBoldItalic'),
-        url('TTFirsNeue-DemiBoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('TTFirsNeue-DemiBoldItalic.woff2') format('woff2'),
-        url('TTFirsNeue-DemiBoldItalic.woff') format('woff'),
-        url('TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+        url('static/font/TTFirsNeue-DemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('static/font/TTFirsNeue-DemiBoldItalic.woff2') format('woff2'),
+        url('static/font/TTFirsNeue-DemiBoldItalic.woff') format('woff'),
+        url('static/font/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
 }
@@ -50,10 +51,10 @@
     font-family: 'TT Firs Neue';
     src: url('TTFirsNeue-ExtraLight.eot');
     src: local('TT Firs Neue ExtraLight'), local('TTFirsNeue-ExtraLight'),
-        url('TTFirsNeue-ExtraLight.eot?#iefix') format('embedded-opentype'),
-        url('TTFirsNeue-ExtraLight.woff2') format('woff2'),
-        url('TTFirsNeue-ExtraLight.woff') format('woff'),
-        url('TTFirsNeue-ExtraLight.ttf') format('truetype');
+        url('static/font/TTFirsNeue-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('static/font/TTFirsNeue-ExtraLight.woff2') format('woff2'),
+        url('static/font/TTFirsNeue-ExtraLight.woff') format('woff'),
+        url('static/font/TTFirsNeue-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
 }
