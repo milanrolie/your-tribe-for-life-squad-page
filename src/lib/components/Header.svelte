@@ -2,14 +2,30 @@
   <h1>squadpage</h1>
   <div class="info_component">
     <h3>Globale squad informatie</h3>
-    <div class="lines">
-      <div class="horizontal" />
-      <div class="vertical_line">
-        <div class="linesv" />
-        <div class="linesv" />
-        <div class="linesv" />
-        <div class="linesv" />
-        <div class="linesv" />
+    <div class="line_container">
+      <div class="line">
+        <div class="container">
+          <span id="squad">54</span>
+          <p>Squad Members</p>
+        </div>
+      </div>
+      <div class="line">
+        <div class="container">
+          <span id="squads">02</span>
+          <p>Squads</p>
+        </div>
+      </div>
+      <div class="line">
+        <div class="container">
+          <span id="squad_a">28</span>
+          <p>Squad A</p>
+        </div>
+      </div>
+      <div class="line">
+        <div class="container">
+          <span id="squad_b">26</span>
+          <p>Squad B</p>
+        </div>
       </div>
     </div>
   </div>
@@ -33,30 +49,47 @@
       padding: var(--padding);
     }
 
-    & .lines {
+    & .line_container {
       margin: var(--padding) 0 var(--padding) 0;
-      width: 100%;
+      display: flex;
+    }
 
-      & .horizontal {
-        border: 0.5px solid var(--dark);
-      }
+    & .line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid var(--dark);
+      border-left: 1px solid var(--dark);
+      height: 19vw;
+      width: 25%;
+    }
 
-      & .vertical_line {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-      }
+    & .line:nth-child(1) {
+      border-left: 0px;
+    }
 
-      & .linesv {
-        height: 21vw;
-        width: 1px;
-        border-left: 1px solid var(--dark);
-      }
+    & .container {
+      text-align: left;
+    }
 
-      & .linesv:nth-child(5),
-      .linesv:nth-child(1) {
-        opacity: 0;
-      }
+    & span {
+      font-size: 8vw;
+    }
+
+    & #squad {
+      color: var(--justBlue);
+    }
+
+    & #squads {
+      color: var(--bitterSweet);
+    }
+
+    & #squad_a {
+      color: var(--mainlyGreen);
+    }
+
+    & #squad_b {
+      color: var(--webLavender);
     }
   }
 </style>
