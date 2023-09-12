@@ -8,13 +8,12 @@
 <!-- <SliceZone slices={data.slices} {components} /> -->
 
 <nav> 
-  <p>f nbdvedvv</p>
 </nav>
 
 <style>
-  nav {
+  /* nav {
     background-color: antiquewhite;
     width: 10rem;
     height: 10rem;
-  }
+  } */
 </style>

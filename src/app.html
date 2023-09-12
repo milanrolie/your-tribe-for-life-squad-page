@@ -6,6 +6,7 @@
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 	<meta name="viewport" content="width=device-width" />
 	%sveltekit.head%
+	<link rel="stylesheet" href="./style.css">
 </head>
 
 <body data-sveltekit-preload-data="hover">
@@ -15,23 +16,6 @@
 </html>
 
 <style>
-	html.lenis {
-		height: auto;
-	}
 
-	.lenis.lenis-smooth {
-		scroll-behavior: auto;
-	}
 
-	.lenis.lenis-smooth [data-lenis-prevent] {
-		overscroll-behavior: contain;
-	}
-
-	.lenis.lenis-stopped {
-		overflow: hidden;
-	}
-
-	.lenis.lenis-scrolling iframe {
-		pointer-events: none;
-	}
 </style>
