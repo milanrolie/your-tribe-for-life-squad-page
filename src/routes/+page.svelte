@@ -2,13 +2,13 @@
   import { SliceZone } from "@prismicio/svelte";
   import { components } from "$lib/slices";
   import MemberList from "$lib/components/MemberList.svelte";
-  import Nav from "$lib/components/Nav.svelte";
+  import Navigation from "../lib/components/Navigation.svelte";
 
 
   export let data;
 </script>
 
-<Nav />
+<Navigation />
 <MemberList list={data.slices[0]} />
 
 
