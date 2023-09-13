@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import arrow from "$lib/assets/arrow.svg";
   export let list;
   
 
