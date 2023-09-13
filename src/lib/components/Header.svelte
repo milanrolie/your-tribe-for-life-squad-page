@@ -1,31 +1,40 @@
+<script>
+    import { onMount } from "svelte";
+</script>
+
 <header>
   <h1>squadpage</h1>
   <div class="info_component">
     <h3>Globale squad informatie</h3>
     <div class="line_container">
+
       <div class="line">
         <div class="container">
           <span id="squad">54</span>
           <p>Squad Members</p>
         </div>
       </div>
+
       <div class="line">
         <div class="container">
           <span id="squads">02</span>
           <p>Squads</p>
         </div>
       </div>
+
       <div class="line">
         <div class="container">
           <span id="squad_a">28</span>
           <p>Squad A</p>
         </div>
       </div>
+
       <div class="line">
         <div class="container">
           <span id="squad_b">26</span>
           <p>Squad B</p>
         </div>
+      
       </div>
     </div>
   </div>
