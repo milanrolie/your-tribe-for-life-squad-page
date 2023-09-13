@@ -1,57 +1,71 @@
 <script>
-   import { onMount } from "svelte";
+  import { onMount } from "svelte";
+  import arrow from "$lib/assets/arrow.svg";
+  export let list;
 
-export let list;
+  onMount(() => {
+    const cursors = document.querySelectorAll(".follow-img");
+    const smoothFactor = 0.1;
+    const targetPositions = Array.from(cursors).map(() => ({ x: 0, y: 0 }));
 
-onMount(() => {
-  // Select all elements with class "follow-img"
-  const cursors = document.querySelectorAll('.follow-img');
+    document.addEventListener("mousemove", (e) => {
+      cursors.forEach((cursor, index) => {
+        targetPositions[index].x = e.clientX;
+        targetPositions[index].y = e.clientY;
+      });
+    });
 
-  // Set a factor to control the smoothness (lower values will make it smoother)
-  const smoothFactor = 0.1;
+    const updatePositions = () => {
+      cursors.forEach((cursor, index) => {
+        const dx = targetPositions[index].x - cursor.offsetLeft;
+        const dy = targetPositions[index].y - cursor.offsetTop;
+        cursor.style.left = `${cursor.offsetLeft + dx * smoothFactor}px`;
+        cursor.style.top = `${cursor.offsetTop + dy * smoothFactor}px`;
+      });
+      requestAnimationFrame(updatePositions);
+    };
 
-  // Create an array to store target positions for each element
-  const targetPositions = Array.from(cursors).map(() => ({ x: 0, y: 0 }));
+    updatePositions();
 
-  // Add a mousemove event listener to update the target positions
-  document.addEventListener('mousemove', (e) => {
-    cursors.forEach((cursor, index) => {
-      targetPositions[index].x = e.clientX;
-      targetPositions[index].y = e.clientY;
+    const hoverLi = document.querySelectorAll("li");
+
+    hoverLi.forEach((li) => {
+      const background = li.querySelector(".background");
+
+      li.addEventListener("mouseenter", function (e) {
+        background.classList.add("animated");
+      });
+
+      li.addEventListener("mouseleave", function (e) {
+        setTimeout(() => {
+          background.classList.remove("animated");
+        }, 200);
+      });
     });
   });
-
-  // Function to update the positions of all elements smoothly
-  const updatePositions = () => {
-    cursors.forEach((cursor, index) => {
-      // Calculate the difference between the current and target positions
-      const dx = targetPositions[index].x - cursor.offsetLeft;
-      const dy = targetPositions[index].y - cursor.offsetTop;
-
-      // Update the element position by interpolating towards the target position
-      cursor.style.left = `${cursor.offsetLeft + dx * smoothFactor}px`;
-      cursor.style.top = `${cursor.offsetTop + dy * smoothFactor}px`;
-    });
-
-    // Request the next animation frame
-    requestAnimationFrame(updatePositions);
-  };
-
-  // Start the animation loop
-  updatePositions();
-});
-
 </script>
 
 <h3>op deze pagina kun je alle squadmembers vinden.</h3>
-
 <ul>
   {#each list.items.slice(0, 6) as item}
     <li>
+      <svg
+        class="arrow"
+        width="16"
+        height="15"
+        viewBox="0 0 16 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3"
+          stroke=""
+        />
+      </svg>
+      <div class="animated" />
       <a href={item.Squad_Member.uid}>
         <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
-        <!-- <div class="background background-top" />
-        <div class="background background-bottom" /> -->
+        <div class="background" />
         <img
           class="follow-img"
           src={item.Squad_Member.data.afbeelding.url}
@@ -65,7 +79,6 @@ onMount(() => {
     </li>
   {/each}
 </ul>
-
 
 <style>
   h3 {
@@ -95,76 +108,68 @@ onMount(() => {
     opacity: 1;
   }
 
-  li:hover .background-top {
-    /* top: 100%; */
-    animation: toTop 1s forwards;
-    animation-fill-mode: forwards; /* Ensure final state persists */
-  }
-
-  li:hover .background-bottom {
-    /* top: -100%; */
-    animation: toBottom 1s forwards;
-    animation-fill-mode: forwards; /* Ensure final state persists */
-  }
-
-  li:hover {
-    background-color: var(--flashWhite);
-  }
-
-  /* @keyframes toBottom {
-    0% {
-      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);;
-    }
-    100% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);    }
-  }
-
-  @keyframes toTop {
-    0% {
-      transform: translateY(0%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  } */
-
   a {
     display: flex;
     justify-content: space-between;
   }
 
-  p {
-    font-weight: 200;
-    mix-blend-mode: difference;
-  }
-
-  .member-name {
-    width: 10vw;
+  .arrow {
+    position: absolute;
+    stroke: var(--dark);
+    height: 0.9em;
+    width: 0.9em;
+    left: -3em;
+    top: 35%;
     transition: 0.3s;
   }
 
-  .squad {
+  li:hover .arrow {
+    transform: translateX(3.5em);
+  }
+
+  li:hover .view {
+    transform: translateX(-1em);
+    opacity: 1;
+  }
+
+  p {
+    font-weight: 200;
+  }
+
+  .member-name {
     width: 30vw;
+    transition: 0.3s;
+    mix-blend-mode: difference;
+  }
+
+  .squad {
+    width: 40vw;
+    mix-blend-mode: difference;
+  }
+
+  .view {
+    transform: translateX(3em);
+    opacity: 0;
+    transition: 0.3s;
+    color: var(--dark);
   }
 
   .background {
     position: absolute;
     background-color: var(--flashWhite);
+    top: 0;
     width: 100%;
     height: 100%;
     transition: 0.3s cubic-bezier(0.65, 0, 0.35, 1);
     z-index: -1;
+    opacity: 0;
   }
 
-  .background-top {
-    top: 100%;
+  .animated {
+    opacity: 1;
   }
 
-  .background-bottom {
-    top: -100%;
-  }
-
-  img {
+  .follow-img {
     position: fixed;
     opacity: 0;
     width: 20vw;
@@ -174,7 +179,7 @@ onMount(() => {
     z-index: 10;
     object-fit: cover;
     pointer-events: none;
-    border-radius: .5em;
+    border-radius: 0.5em;
     transform: translateX(1em) translateY(1em);
   }
 </style>
