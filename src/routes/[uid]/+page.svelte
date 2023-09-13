@@ -1,6 +1,15 @@
 <script>
   import { PrismicImage } from "@prismicio/svelte";
+  import { onMount } from 'svelte';
   export let data;
+
+  import { fade, slide, fly } from "svelte/transition";
+  
+  let showing = false;
+
+  onMount(() => {
+		showing = true
+	})
 </script>
 
 <!-- <pre>
@@ -9,6 +18,7 @@
 
 <header>
   <span>{data.naam[0].text}</span>
+  <a href="/">Home</a>
 </header>
 
 <!-- <a href="/">Home</a> -->
@@ -17,23 +27,27 @@
   <div class="containerr">
     <div class="container_info">
       <div class="id_container">
-        <div class="id_info">
-          <p>ID.</p>
-          <span>50</span>
-        </div>
+        {#if showing}
+          <div class="id_info" transition:fade={{ x: -400, duration: 1000}} >
+            <p>ID.</p>
+            <span>50</span>
+          </div>
+        {/if}
       </div>
 
       <div class="squad_container">
-        <div class="squad_info">
+        {#if showing}
+        <div class="squad_info" transition:fade={{ delay: 500, x: -400, duration: 1000}}>
           <p>SQUAD.</p>
           <span>{data.squad[6]}</span>
         </div>
+        {/if}
       </div>
     </div>
     <article>
       <p>
-        <span>"</span> I BRING YEARS OF EXPERIENCE BUILDING & SHAPING BRANDS WITH A STEADY
-        HAND OF CREATIVITY,VISION AND COUNSEL. ”
+        " I BRING YEARS OF EXPERIENCE BUILDING & SHAPING BRANDS WITH A STEADY HAND OF
+        CREATIVITY,VISION AND COUNSEL. ”
       </p>
     </article>
   </div>
@@ -55,10 +69,22 @@
   }
 
   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     & span {
       font-size: 6vw;
       font-weight: 300;
       text-transform: uppercase;
+    }
+
+    & a {
+      transition: 0.5s;
+    }
+
+    & a:hover {
+      scale: 0.95;
     }
   }
 
