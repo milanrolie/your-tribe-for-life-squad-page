@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import arrow from "$lib/assets/arrow.svg";
   export let list;
+  
 
   onMount(() => {
     const cursors = document.querySelectorAll(".follow-img");
@@ -31,26 +32,34 @@
 
     hoverLi.forEach((li) => {
       const background = li.querySelector(".background");
+      const textAnimation = li.querySelector(".member-name");
+
 
       li.addEventListener("mouseenter", function (e) {
         background.classList.add("animated");
+        textAnimation.classList.add("textRight");
+
       });
 
       li.addEventListener("mouseleave", function (e) {
         setTimeout(() => {
           background.classList.remove("animated");
+          textAnimation.classList.remove("textRight");
         }, 200);
       });
     });
   });
+
+  console.log(list);
 </script>
 
 <h3>op deze pagina kun je alle squadmembers vinden.</h3>
 <ul>
-  {#each list.items.slice(0, 6) as item}
+  {#each Array(4) as _}
+  {#each list.items as item}
     <li>
       <svg
-        class="arrow"
+        class="arrow textRight"
         width="16"
         height="15"
         viewBox="0 0 16 15"
@@ -62,7 +71,7 @@
           stroke=""
         />
       </svg>
-      <div class="animated" />
+      <div class="animated textRight" />
       <a href={item.Squad_Member.uid}>
         <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
         <div class="background" />
@@ -78,7 +87,13 @@
       </a>
     </li>
   {/each}
+  {/each}
+
+
+
+
 </ul>
+
 
 <style>
   h3 {
@@ -92,16 +107,16 @@
     border-bottom: 1px solid var(--flashWhite);
   }
 
+  ul:hover img {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
   li {
     position: relative;
     border-top: 1px solid var(--flashWhite);
     list-style-type: none;
     padding: 1em 0;
     transition: 0.3s;
-  }
-
-  li:hover .member-name {
-    transform: translateX(2em);
   }
 
   li:hover img {
@@ -169,6 +184,10 @@
     opacity: 1;
   }
 
+  .textRight {
+    transform: translateX(2em);
+  }
+
   .follow-img {
     position: fixed;
     opacity: 0;
@@ -181,5 +200,8 @@
     pointer-events: none;
     border-radius: 0.5em;
     transform: translateX(1em) translateY(1em);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        transition: clip-path .8s ease-in-out;
+
   }
 </style>
