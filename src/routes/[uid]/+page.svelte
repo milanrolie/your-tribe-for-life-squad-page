@@ -16,7 +16,6 @@
 <section>
   <div class="containerr">
     <div class="container_info">
-
       <div class="id_container">
         <div class="id_info">
           <p>ID.</p>
@@ -30,12 +29,17 @@
           <span>{data.squad[6]}</span>
         </div>
       </div>
-
     </div>
+    <article>
+      <p>
+        <span>"</span> I BRING YEARS OF EXPERIENCE BUILDING & SHAPING BRANDS WITH A STEADY
+        HAND OF CREATIVITY,VISION AND COUNSEL. ”
+      </p>
+    </article>
   </div>
-  <img src={data.afbeelding.url} alt="" width="570" height="500" />
-</section>
 
+  <img src={data.afbeelding.url} alt="" width="440" height="520" />
+</section>
 
 <!-- <section>
   <h1>HELLO<span>{data.naam[0].text}</span></h1>
@@ -51,7 +55,6 @@
   }
 
   header {
-
     & span {
       font-size: 6vw;
       font-weight: 300;
@@ -61,8 +64,6 @@
 
   section {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
 
     & .containerr {
       background-color: var(--flashWhite);
@@ -70,6 +71,16 @@
       border-radius: var(--bradius);
       width: 52.3vw;
       height: 15vw;
+
+      & article {
+        color: white;
+        margin-top: var(--padding);
+        width: 30vw;
+      }
+
+      & article span {
+        word-break: break-all;
+      }
     }
 
     & .container_info {
@@ -122,5 +133,18 @@
 
   img {
     border-radius: var(--bradius);
+    object-fit: cover;
+    margin-left: 2rem;
+    animation: clip 1s ease-in-out;
+  }
+
+  @keyframes clip {
+    0% {
+      clip-path: polygon(0 100%, 100% 78%, 100% 100%, 0% 100%);
+    }
+
+    100% {
+      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    }
   }
 </style>
