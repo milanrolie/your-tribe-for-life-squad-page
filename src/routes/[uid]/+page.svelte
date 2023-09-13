@@ -17,7 +17,9 @@
 </pre>   -->
 
 <header>
-  <span>{data.naam[0].text}</span>
+  {#if showing}
+  <span transition:slide={{ duration: 1500}}>{data.naam[0].text}</span>
+  {/if}
   <a href="/">Home</a>
 </header>
 
@@ -26,23 +28,21 @@
 <section>
   <div class="containerr">
     <div class="container_info">
+      {#if showing}
       <div class="id_container">
-        {#if showing}
           <div class="id_info" transition:fade={{ x: -400, duration: 1000}} >
             <p>ID.</p>
             <span>50</span>
           </div>
-        {/if}
       </div>
 
       <div class="squad_container">
-        {#if showing}
         <div class="squad_info" transition:fade={{ delay: 500, x: -400, duration: 1000}}>
           <p>SQUAD.</p>
           <span>{data.squad[6]}</span>
         </div>
-        {/if}
       </div>
+      {/if}
     </div>
     <article>
       <p>
