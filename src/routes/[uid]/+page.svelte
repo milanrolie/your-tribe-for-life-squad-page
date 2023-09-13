@@ -3,37 +3,39 @@
   export let data;
 </script>
 
-<pre>
-  {JSON.stringify(data, null,)}
-</pre>
+<!-- <pre>
+  {JSON.stringify(data, null)}
+</pre>   -->
 
 <header>
-<span>{data.naam[0].text}</span>
+  <span>{data.naam[0].text}</span>
 </header>
 
+<!-- <a href="/">Home</a> -->
+
 <section>
-  <div class="number"></div>
+  <div class="containerr">
+    <div class="container_info">
 
-  <div class="container">
-
-    <div class="id">
-      <div class="info">
+      <div class="id_container">
+        <div class="id_info">
+          <p>ID.</p>
+          <span>50</span>
+        </div>
       </div>
-    </div>
 
-    <div class="squad">
-      <div class="info">
-        <p id="squad_info">squad</p>
-        <span id="info">
-          {data.squad}
-        </span>
+      <div class="squad_container">
+        <div class="squad_info">
+          <p>SQUAD.</p>
+          <span>{data.squad[6]}</span>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
-
-  <div class="boolean"></div>
+  <img src={data.afbeelding.url} alt="" width="570" height="500" />
 </section>
+
 
 <!-- <section>
   <h1>HELLO<span>{data.naam[0].text}</span></h1>
@@ -49,64 +51,76 @@
   }
 
   header {
-    width: 55vw;
-  }
 
-  span {
-    font-size: 6vw;
-    font-weight: 300;
-    text-transform: uppercase;
+    & span {
+      font-size: 6vw;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
   }
-
 
   section {
-    background-color: var(--flashWhite);
-    color: black;
-    border-radius: var(--bradius);
-    width: 52.3vw;
-    height: 15vw;
-  }
-
-
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 0 6rem 0 6rem;
-  }
-
-  .id, .squad {
-    border-top: 1px solid var(--dark);
-    border-right: 1px solid var(--dark);
-    width: 100%;
-    height: 8rem;
-    padding: 2rem;
-  }
-
-  .squad {
-    position: relative;
-    border-right: none;
-  }
-
-  .info {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+
+    & .containerr {
+      background-color: var(--flashWhite);
+      color: black;
+      border-radius: var(--bradius);
+      width: 52.3vw;
+      height: 15vw;
+    }
+
+    & .container_info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 52.3vw;
+      padding: 0 6rem 0 6rem;
+      font-weight: 200;
+    }
+
+    & .id_container,
+    .squad_container {
+      position: relative;
+      border-top: 1px solid var(--dark);
+      border-right: 1px solid var(--dark);
+      width: 100%;
+      height: 8rem;
+      padding: 2rem;
+    }
+
+    & .squad_container {
+      border-right: none;
+    }
+
+    & .id_info p,
+    .squad_info p {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    & .id_info span,
+    .squad_info span {
+      font-size: 50px;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    & .id_info span {
+      color: var(--justBlue);
+    }
+
+    & .squad_info span {
+      color: var(--mainlyGreen);
+    }
   }
 
-  #info {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    font-size: 10px;
+  img {
+    border-radius: var(--bradius);
   }
-
-  #squad_info {
-    font-weight: 100;
-    position: absolute;
-    top: 1rem;
-    left:  1rem;
-  }
-
 </style>
