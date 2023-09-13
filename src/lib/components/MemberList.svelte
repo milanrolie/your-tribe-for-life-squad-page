@@ -71,7 +71,6 @@
           stroke=""
         />
       </svg>
-      <div class="animated textRight" />
       <a href={item.Squad_Member.uid}>
         <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
         <div class="background" />
@@ -88,10 +87,6 @@
     </li>
   {/each}
   {/each}
-
-
-
-
 </ul>
 
 
@@ -180,11 +175,11 @@
     opacity: 0;
   }
 
-  .animated {
+  :is(.animated) {
     opacity: 1;
   }
 
-  .textRight {
+  :is(.textRight) {
     transform: translateX(2em);
   }
 
