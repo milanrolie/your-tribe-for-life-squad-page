@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   export let list;
-  
 
   onMount(() => {
     const cursors = document.querySelectorAll(".follow-img");
@@ -33,11 +32,9 @@
       const background = li.querySelector(".background");
       const textAnimation = li.querySelector(".member-name");
 
-
       li.addEventListener("mouseenter", function (e) {
         background.classList.add("animated");
         textAnimation.classList.add("textRight");
-
       });
 
       li.addEventListener("mouseleave", function (e) {
@@ -47,49 +44,110 @@
         }, 200);
       });
     });
+
+    const filterLinks = document.querySelectorAll(".filter-link");
+    const squadMembers = document.querySelectorAll(".squad-member");
+
+    filterLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        const filterValue = link.getAttribute("data-filter");
+
+        squadMembers.forEach((member) => {
+          const squad = member.getAttribute("data-squad");
+          if (filterValue === "all" || squad === filterValue) {
+            member.style.display = "block";
+          } else {
+            member.style.display = "none";
+          }
+        });
+      });
+    });
   });
 
   console.log(list);
-</script>
+</script> 
 
+<!-- <div class="container_filter">
+  <a href="/">ALLE</a><a href="/">SQUAD A</a><a href="/">SQUAD B</a>
+</div>
 <h3>op deze pagina kun je alle squadmembers vinden.</h3>
 <ul>
   {#each Array(4) as _}
-  {#each list.items as item}
-    <li>
-      <svg
-        class="arrow textRight"
-        width="16"
-        height="15"
-        viewBox="0 0 16 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3"
-          stroke=""
-        />
-      </svg>
-      <a href={item.Squad_Member.uid}>
-        <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
-        <div class="background" />
-        <img
-          class="follow-img"
-          src={item.Squad_Member.data.afbeelding.url}
-          alt={item.Squad_Member.data.naam[0].text}
-          width="240"
-          height="320"
-        />
-        <p class="squad">{item.Squad_Member.data.squad}</p>
-        <p class="view">view</p>
-      </a>
-    </li>
+    {#each list.items as item}
+      <li>
+        <svg
+          class="arrow textRight"
+          width="16"
+          height="15"
+          viewBox="0 0 16 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3" stroke="" />
+        </svg>
+        <a href={item.Squad_Member.uid}>
+          <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
+          <div class="background" />
+          <img
+            class="follow-img"
+            src={item.Squad_Member.data.afbeelding.url}
+            alt={item.Squad_Member.data.naam[0].text}
+            width="240"
+            height="320"
+          />
+          <p class="squad">{item.Squad_Member.data.squad}</p>
+          <p class="view">view</p>
+        </a>
+      </li>
+    {/each}
   {/each}
+</ul> -->
+
+<div class="container_filter">
+  <a href="#" class="filter-link" data-filter="all">ALLE</a>
+  <a href="#" class="filter-link" data-filter="Squad A">SQUAD A</a>
+  <a href="#" class="filter-link" data-filter="Squad B">SQUAD B</a>
+</div>
+<h3>Op deze pagina kun je alle squadmembers vinden.</h3>
+<ul>
+  {#each Array(4) as _}
+    {#each list.items as item}
+      <li class="squad-member" data-squad="{item.Squad_Member.data.squad}">
+        <svg
+          class="arrow textRight"
+          width="16"
+          height="15"
+          viewBox="0 0 16 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3" stroke="" />
+        </svg>
+        <a href={item.Squad_Member.uid}>
+          <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
+          <div class="background" />
+          <img
+            class="follow-img"
+            src={item.Squad_Member.data.afbeelding.url}
+            alt={item.Squad_Member.data.naam[0].text}
+            width="240"
+            height="320"
+          />
+          <p class="squad">{item.Squad_Member.data.squad}</p>
+          <p class="view">view</p>
+        </a>
+      </li>
+    {/each}
   {/each}
 </ul>
 
-
 <style>
+  .container_filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    width: 15%;
+  }
   h3 {
     font-size: 3.5vw;
     font-weight: 300;
@@ -195,7 +253,6 @@
     border-radius: 0.5em;
     transform: translateX(1em) translateY(1em);
     clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-        transition: clip-path .8s ease-in-out;
-
+    transition: clip-path 0.8s ease-in-out;
   }
 </style>
