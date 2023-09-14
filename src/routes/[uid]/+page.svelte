@@ -78,13 +78,26 @@
       font-weight: 300;
       text-transform: uppercase;
     }
-
     & a {
-      transition: 0.5s;
+      position: relative;
     }
 
-    & a:hover {
-      scale: 0.95;
+    & a::after {
+      position: absolute;
+      content: "";
+      background: var(--flashWhite);
+      width: 100%;
+      height: 0.5px;
+      left: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease-in;
+    }
+
+    & a:hover::after {
+      transform: scale(1);
+      transform-origin: right;
     }
   }
 

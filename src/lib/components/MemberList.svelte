@@ -1,4 +1,5 @@
 <script>
+  import { filter } from "@prismicio/client";
   import { onMount } from "svelte";
   export let list;
 
@@ -59,49 +60,12 @@
           } else {
             member.style.display = "none";
           }
+          event.preventDefault();
         });
       });
     });
   });
-
-  console.log(list);
-</script> 
-
-<!-- <div class="container_filter">
-  <a href="/">ALLE</a><a href="/">SQUAD A</a><a href="/">SQUAD B</a>
-</div>
-<h3>op deze pagina kun je alle squadmembers vinden.</h3>
-<ul>
-  {#each Array(4) as _}
-    {#each list.items as item}
-      <li>
-        <svg
-          class="arrow textRight"
-          width="16"
-          height="15"
-          viewBox="0 0 16 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3" stroke="" />
-        </svg>
-        <a href={item.Squad_Member.uid}>
-          <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
-          <div class="background" />
-          <img
-            class="follow-img"
-            src={item.Squad_Member.data.afbeelding.url}
-            alt={item.Squad_Member.data.naam[0].text}
-            width="240"
-            height="320"
-          />
-          <p class="squad">{item.Squad_Member.data.squad}</p>
-          <p class="view">view</p>
-        </a>
-      </li>
-    {/each}
-  {/each}
-</ul> -->
+</script>
 
 <div class="container_filter">
   <a href="#" class="filter-link" data-filter="all">ALLE</a>
@@ -112,7 +76,7 @@
 <ul>
   {#each Array(4) as _}
     {#each list.items as item}
-      <li class="squad-member" data-squad="{item.Squad_Member.data.squad}">
+      <li class="squad-member" data-squad={item.Squad_Member.data.squad}>
         <svg
           class="arrow textRight"
           width="16"
@@ -147,6 +111,28 @@
     justify-content: space-between;
     margin-bottom: 0.5rem;
     width: 15%;
+
+    & a {
+      position: relative;
+    }
+
+    & a::after {
+      position: absolute;
+      content: "";
+      background: var(--flashWhite);
+      width: 100%;
+      height: 0.5px;
+      left: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease-in;
+    }
+
+    & a:hover::after {
+      transform: scale(1);
+      transform-origin: right;
+    }
   }
   h3 {
     font-size: 3.5vw;
