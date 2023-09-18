@@ -36,7 +36,7 @@
 
 
 <main>
-<slot />
+  <slot />
 </main>
 
 <style>
