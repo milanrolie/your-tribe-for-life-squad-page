@@ -107,4 +107,20 @@
       color: var(--webLavender);
     }
   }
+
+  @media (max-width: 500px) {
+
+    .info_component {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .info_component h3 {
+      font-size: smaller;
+      /* height: 40vw; */
+    }
+    .line {
+      font-size: 0px;
+    }
+  }
 </style>

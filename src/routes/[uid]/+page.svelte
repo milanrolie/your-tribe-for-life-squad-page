@@ -193,6 +193,7 @@
       justify-content: center;
       width: fit-content;
       height: 5vh;
+      padding: 0;
     }
 
     .container_rightside {
