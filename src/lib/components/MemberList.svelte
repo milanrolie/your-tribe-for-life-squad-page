@@ -241,4 +241,13 @@
     clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
     transition: clip-path 0.8s ease-in-out;
   }
+
+
+  @media (max-width: 500px) {
+    .container_filter {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
 </style>

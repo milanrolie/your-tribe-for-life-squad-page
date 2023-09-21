@@ -11,7 +11,7 @@
       <div class="line">
         <div class="container">
           <span id="squad">54</span>
-          <p>Squad Members</p>
+          <p>Members</p>
         </div>
       </div>
 
@@ -58,7 +58,6 @@
       background-color: var(--flashWhite);
       border-radius: var(--bradius);
       width: 100%;
-      height: 25vw;
       margin: var(--padding) 0 var(--padding) 0;
       padding: var(--padding);
       font-weight: 300;
@@ -109,18 +108,45 @@
   }
 
   @media (max-width: 500px) {
+    header h1 {
+      font-size: 16px;
+    } 
 
     .info_component {
+      height: 30vh;
+    }
+
+    .info_component h3 {
+        font-size: 16px;
+      }
+
+    .container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
     }
-    .info_component h3 {
-      font-size: smaller;
-      /* height: 40vw; */
+
+    .line span {
+      font-size: 20px;
     }
-    .line {
-      font-size: 0px;
+
+    .line p {
+      font-size: smaller;
     }
   }
 </style>
+
+
+<!-- .info_component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info_component h3 {
+  font-size: smaller;
+  /* height: 40vw; */
+}
+.line {
+  font-size: 0px;
+} -->
