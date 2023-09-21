@@ -23,9 +23,7 @@ Deze website is gemaakt met als doel onze klasgenoten te verzamelen zodat wij el
 1. Download de code als zip bestand en open deze map in je Code editor.
 2. Voer de volgende commands uit in je terminal binnen het project: <br><br>
    `npm install`<br>
-   `npm install gsap`<br>
-   `npm install slicemachine`<br>
-   `npm i @studio-freight/lenis`<br><br>
+   `npm install slicemachine`<br><br>
 3. Enjoy!
 
 ## Licentie
