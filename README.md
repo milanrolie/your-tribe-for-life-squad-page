@@ -14,8 +14,8 @@ Deze website is gemaakt met als doel onze klasgenoten te verzamelen zodat wij el
 
   
 ## Kenmerken
-  Deze website is gobouwd met SvelteKit. 
-  CMS: Prismic
+  Deze website is gobouwd met SvelteKit. <br>
+  CMS: Prismic<br>
   Libraries: Lenis
 
 ## Installatie
