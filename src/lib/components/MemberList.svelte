@@ -74,7 +74,6 @@
 </div>
 <h3>Op deze pagina kun je alle squadmembers vinden.</h3>
 <ul>
-  {#each Array(4) as _}
     {#each list.items as item}
       <li class="squad-member" data-squad={item.Squad_Member.data.squad}>
         <svg
@@ -102,7 +101,6 @@
         </a>
       </li>
     {/each}
-  {/each}
 </ul>
 
 <style>

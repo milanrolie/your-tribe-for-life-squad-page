@@ -9,31 +9,31 @@
     <div class="line_container">
 
       <div class="line">
-        <div class="container">
-          <span id="squad">54</span>
-          <p>Members</p>
-        </div>
+        <dl class="container">
+          <dt id="squad">54</dt>
+          <dd>Members</dd>
+        </dl>
       </div>
 
       <div class="line">
-        <div class="container">
-          <span id="squads">02</span>
-          <p>Squads</p>
-        </div>
+        <dl class="container">
+          <dt id="squads">54</dt>
+          <dd>Squads</dd>
+        </dl>
       </div>
 
       <div class="line">
-        <div class="container">
-          <span id="squad_a">28</span>
-          <p>Squad A</p>
-        </div>
+        <dl class="container">
+          <dt id="squad_a">28</dt>
+          <dd>Squad A</dd>
+        </dl>
       </div>
 
       <div class="line">
-        <div class="container">
-          <span id="squad_b">26</span>
-          <p>Squad B</p>
-        </div>
+        <dl class="container">
+          <dt id="squad_b">26</dt>
+          <dd>Squad B</dd>
+        </dl>
       
       </div>
     </div>
@@ -104,6 +104,9 @@
 
     & #squad_b {
       color: var(--webLavender);
+    }
+    & dt {
+      font-size: 8vw;
     }
   }
 
