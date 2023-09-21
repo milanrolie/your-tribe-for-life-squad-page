@@ -256,6 +256,10 @@
     .background {
       display: none;
     }
+
+    .follow-img {
+      display: none;
+    }
   }
 
 </style>
