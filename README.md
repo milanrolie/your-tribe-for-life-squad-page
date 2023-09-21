@@ -10,7 +10,7 @@
 ## Beschrijving
 Deze website is gemaakt met als doel onze klasgenoten te verzamelen zodat wij elkaar later gemakkelijk terug kunnen vinden.
 <br>
-![image](https://github.com/milanrolie/your-tribe-for-life-squad-page/assets/112857190/50c9871b-a4f7-4275-a189-685e41ed1d2d)
+![MacBook Pro 16](https://github.com/milanrolie/your-tribe-for-life-squad-page/assets/62908209/853513e8-9088-480c-ae20-dd0ad298ed8d)
 
   
 ## Kenmerken
