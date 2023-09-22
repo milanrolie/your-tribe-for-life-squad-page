@@ -84,7 +84,10 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3" stroke="" />
+          <path
+            d="M0 7.80004H15M15 7.80004L8.5 0.956521M15 7.80004L8.5 14.3"
+            stroke=""
+          />
         </svg>
         <a href={item.Squad_Member.uid}>
           <p class="member-name">{item.Squad_Member.data.naam[0].text}</p>
@@ -248,8 +251,15 @@
       width: 100%;
     }
   }
-
   @media (prefers-reduced-motion) {
-  /* styles to apply if a user's device settings are set to reduced motion */
-}
+
+    .background {
+      display: none;
+    }
+
+    .follow-img {
+      display: none;
+    }
+  }
+
 </style>

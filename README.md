@@ -1,38 +1,33 @@
-# create-svelte
+# Squadpage FDND 2023/2024.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Inhoudsopgave
 
-## Creating a project
+  * [Beschrijving](#beschrijving)
+  * [Kenmerken](#kenmerken)
+  * [Installatie](#installatie)
+  * [Licentie](#licentie)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Beschrijving
+Deze website is gemaakt met als doel onze klasgenoten te verzamelen zodat wij elkaar later gemakkelijk terug kunnen vinden.
+<br>
+![MacBook Pro 16](https://github.com/milanrolie/your-tribe-for-life-squad-page/assets/62908209/853513e8-9088-480c-ae20-dd0ad298ed8d)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+  
+## Kenmerken
+  Deze website is gobouwd met SvelteKit. <br>
+  CMS: Prismic<br>
+  Libraries: Lenis
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Installatie
 
-## Developing
+1. Download de code als zip bestand en open deze map in je Code editor.
+2. Voer de volgende commands uit in je terminal binnen het project: <br><br>
+   `npm install`<br>
+   `npm install slicemachine`<br><br>
+3. Enjoy!
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Licentie
 
-```bash
-npm run dev
+This project is licensed under the terms of the [MIT license](./LICENSE).
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
