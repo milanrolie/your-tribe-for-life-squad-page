@@ -224,6 +224,7 @@
     --dark: #040404;
     --bradius: 20px;
     --padding: 2em;
+    --paddings: 0em;
 }
 
 * {

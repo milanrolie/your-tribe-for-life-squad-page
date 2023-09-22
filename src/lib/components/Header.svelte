@@ -110,7 +110,7 @@
     }
   }
 
-  @media (max-width: 500px) {
+  @media screen and (max-width: 500px) {
     header h1 {
       font-size: 16px;
     } 
@@ -136,6 +136,11 @@
 
     .line p {
       font-size: smaller;
+    }
+
+    dd{
+      white-space: nowrap;
+      font-size: 13px;
     }
   }
 </style>

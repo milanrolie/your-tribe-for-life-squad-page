@@ -108,7 +108,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
-    width: 15%;
+    width: 30%;
 
     & a {
       position: relative;
@@ -248,4 +248,8 @@
       width: 100%;
     }
   }
+
+  @media (prefers-reduced-motion) {
+  /* styles to apply if a user's device settings are set to reduced motion */
+}
 </style>
