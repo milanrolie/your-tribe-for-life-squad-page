@@ -17,7 +17,7 @@
 
       <div class="line">
         <dl class="container">
-          <dt id="squads">54</dt>
+          <dt id="squads">2</dt>
           <dd>Squads</dd>
         </dl>
       </div>
